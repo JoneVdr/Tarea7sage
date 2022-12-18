@@ -1,0 +1,170 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{verbatim}
+#1
+y = sin(pi * x - pi) 
+y.plot(-1,1, color = 'red', thickness = 2)
+\end{verbatim}
+
+\includegraphics{vertopal_1374e2d2042f4e6e8242b2b2a68de653/a48b6addf8926f2c9bb251d769708c178469f9e3.png}
+
+\begin{verbatim}
+#2
+f = cos(pi * x - pi)
+f.plot(-1,1)
+\end{verbatim}
+
+\includegraphics{vertopal_1374e2d2042f4e6e8242b2b2a68de653/7fb0c69ded667562d902f286ea7a8cd622b62eec.png}
+
+\begin{verbatim}
+#3
+g = sin(pi * x - pi)
+i = cos(pi * x - pi)
+plot(g, -1, 1) + plot(i, -1, 1)
+\end{verbatim}
+
+\includegraphics{vertopal_1374e2d2042f4e6e8242b2b2a68de653/5de068ac156df85b4e410dddbf16bdb6f6945731.png}
+
+\begin{verbatim}
+#4
+e = 1 / x
+e.plot(-1,1)
+\end{verbatim}
+
+\includegraphics{vertopal_1374e2d2042f4e6e8242b2b2a68de653/8da5771acb4515b114fbcbdf6fa86df65c7df569.png}
+
+\begin{verbatim}
+#5
+x, y = var('x, y')
+r = (y * sin(x^2 - y^2) == x * cos(x + y))
+implicit_plot(r, (x, -3, 3), (y, -3, 3))
+\end{verbatim}
+
+\includegraphics{vertopal_1374e2d2042f4e6e8242b2b2a68de653/b886f26ce530cb71335d78144dff08e9bf1d250f.png}
+
+\begin{verbatim}
+#6
+t = var('t')
+w = cos(3 * t)
+ñ = cos(t + cos(3 * t))
+plot(w) + plot(ñ)
+\end{verbatim}
+
+\includegraphics{vertopal_1374e2d2042f4e6e8242b2b2a68de653/936bd4e699ea2afdc69fabdfd2513b47c75f3aeb.png}
+
+\begin{verbatim}
+#7
+x, y = var('x, y')
+z = x^2 - y^2
+plot3d(z, (x, -5, 5), (y, -5, 5))
+\end{verbatim}
+
+\begin{verbatim}
+Graphics3d Object
+\end{verbatim}
+
+\begin{verbatim}
+#8
+x, y, z = var('x, y, z')
+o = (x^2 + y^2 - z^2 == 0)
+implicit_plot3d(o, (x, -5, 5), (y, -5, 5), (z, -5, 5))
+\end{verbatim}
+
+\begin{verbatim}
+Graphics3d Object
+\end{verbatim}
+
+\begin{verbatim}
+#9
+x, y, z = var('x, y, z')
+u = (2 * x + y + z == 1) 
+o = (x^2 + y^2 - z^2 == 0)
+implicit_plot3d(o, (x, -5, 5), (y, -5, 5), (z, -5, 5)) + implicit_plot3d(u, (x, -5, 5), (y, -5, 5), (z, -5, 5), color = 'red', thickness = 2)
+\end{verbatim}
+
+\begin{verbatim}
+Graphics3d Object
+\end{verbatim}
+
+\begin{verbatim}
+#10
+x, y, z = var('x, y, z')
+p = (x - z + 3 == 0)
+h = 0.5 * x + 0.5 * y + z == 1.4
+o = (x^2 + y^2 - z^2 == 0)
+planop = implicit_plot3d(p, (x, -5, 5), (y, -5, 5), (z, -5, 5), color = 'green', thickness = 2)
+planoh = implicit_plot3d(h, (x, -5, 5), (y, -5, 5), (z, -5, 5), color = 'purple', thickness = 2)
+planoo = implicit_plot3d(o, (x, -5, 5), (y, -5, 5), (z, -5, 5))
+planop + planoh + planoo
+\end{verbatim}
+
+\begin{verbatim}
+Graphics3d Object
+\end{verbatim}
+
+\end{document}
